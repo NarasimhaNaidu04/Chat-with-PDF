@@ -1,8 +1,9 @@
 import streamlit as st
 import google.generativeai as genai
 import PyPDF2
-
-genai.configure(api_key="AIzaSyAGsaFMI6fGTqZc2SxBGTrJAtRqyqKxAc4")
+import os
+from dotenv import load_dotenv
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 def read_pdf(file):
